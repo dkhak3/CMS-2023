@@ -1,0 +1,1 @@
+mysqlidump -uroot -p cms-2023 > cms-2023.sql
