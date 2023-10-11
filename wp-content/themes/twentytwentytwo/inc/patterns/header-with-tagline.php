@@ -1,26 +1,26 @@
-<?php
-/**
- * Header with tagline block pattern
- */
-return array(
-	'title'      => __( 'Header with tagline', 'twentytwentytwo' ),
-	'categories' => array( 'header' ),
-	'blockTypes' => array( 'core/template-part/header' ),
-	'content'    => '<!-- wp:group {"align":"full","layout":{"inherit":true}} -->
-					<div class="wp-block-group alignfull"><!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var(--wp--custom--spacing--large, 8rem)","top":"var(--wp--custom--spacing--small, 1.25rem)"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
-					<div class="wp-block-group alignwide" style="padding-top:var(--wp--custom--spacing--small, 1.25rem);padding-bottom:var(--wp--custom--spacing--large, 8rem)"><!-- wp:group {"layout":{"type":"flex"}} -->
-					<div class="wp-block-group"><!-- wp:site-logo {"width":64} /-->
+# Python: 3.9.2 (tags/v3.9.2:1a79785, Feb 19 2021, 13:44:55) [MSC v.1928 64 bit (AMD64)]
+# Library: pandas, version: 1.2.4
+# Module: pandas._libs.tslibs.tzconversion, version: unspecified
+import typing
+import builtins as _mod_builtins
+import dateutil.tz.tz as _mod_dateutil_tz_tz
 
-					<!-- wp:group -->
-					<div class="wp-block-group"><!-- wp:site-title {"style":{"spacing":{"margin":{"top":"0px","bottom":"0px"}},"typography":{"fontStyle":"normal","fontWeight":"700"}}} /-->
+__doc__: str
+__file__: str
+__name__: str
+__package__: str
+__pyx_capi__: dict
+def __pyx_unpickle_Enum() -> typing.Any:
+    ...
 
-					<!-- wp:site-tagline {"style":{"spacing":{"margin":{"top":"0.25em","bottom":"0px"}},"typography":{"fontStyle":"italic","fontWeight":"400"}},"fontSize":"small"} /--></div>
-					<!-- /wp:group --></div>
-					<!-- /wp:group -->
+__test__: dict
+def tz_convert_from_utc() -> typing.Any:
+    '\n    Convert the values (in i8) from UTC to tz\n\n    Parameters\n    ----------\n    vals : int64 ndarray\n    tz : tzinfo\n\n    Returns\n    -------\n    int64 ndarray of converted\n    '
+    ...
 
-					<!-- wp:navigation {"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right"}} -->
-					<!-- wp:page-list {"isNavigationChild":true,"showSubmenuIcon":true,"openSubmenusOnClick":false} /-->
-					<!-- /wp:navigation --></div>
-					<!-- /wp:group --></div>
-					<!-- /wp:group -->',
-);
+def tz_convert_from_utc_single() -> typing.Any:
+    '\n    Convert the val (in i8) from UTC to tz\n\n    This is a single value version of tz_convert_from_utc.\n\n    Parameters\n    ----------\n    val : int64\n    tz : tzinfo\n\n    Returns\n    -------\n    converted: int64\n    '
+    ...
+
+def tz_localize_to_utc() -> typing.Any:
+    '\n    Localize tzinfo-naive i8 to given time zone (using pytz). If\n    there are ambiguities in the values, raise AmbiguousTimeError.\n\n    Parameters\n    ----------\n    vals : ndarray[int64_t]\n    tz : tzinfo or None\n    ambiguous : str, bool, or arraylike\n        When clocks moved backward due to DST, ambiguous times may arise.\n        For example in Central European Time (UTC+01), when going from 03:00\n        DST to 02:00 non-DST, 02:30:00 local time occurs both at 00:30:00 UTC\n        and at 01:30:00 UTC. In such a situation, the `ambiguous` parameter\n        dictates how ambiguous

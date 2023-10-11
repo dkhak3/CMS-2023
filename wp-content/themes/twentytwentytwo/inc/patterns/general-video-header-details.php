@@ -1,47 +1,41 @@
-<?php
-/**
- * Video with header and details block pattern
- */
-return array(
-	'title'      => __( 'Video with header and details', 'twentytwentytwo' ),
-	'categories' => array( 'featured', 'columns' ),
-	'content'    => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var(--wp--custom--spacing--large, 8rem)","bottom":"var(--wp--custom--spacing--large, 8rem)"}},"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"backgroundColor":"foreground","textColor":"secondary"} -->
-					<div class="wp-block-group alignfull has-secondary-color has-foreground-background-color has-text-color has-background has-link-color" style="padding-top:var(--wp--custom--spacing--large, 8rem);padding-bottom:var(--wp--custom--spacing--large, 8rem)"><!-- wp:group {"align":"full","layout":{"inherit":true}} -->
-					<div class="wp-block-group alignfull"><!-- wp:heading {"level":1,"align":"wide","style":{"typography":{"fontSize":"clamp(3rem, 6vw, 4.5rem)"}}} -->
-					<h1 class="alignwide" id="warble-a-film-about-hobbyist-bird-watchers-1" style="font-size:clamp(3rem, 6vw, 4.5rem)">' . wp_kses_post( __( '<em>Warble</em>, a film about <br>hobbyist bird watchers.', 'twentytwentytwo' ) ) . '</h1>
-					<!-- /wp:heading -->
+<!-- BEGIN MICROSOFT SECURITY.MD V0.0.3 BLOCK -->
 
-					<!-- wp:spacer {"height":32} -->
-					<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
-					<!-- /wp:spacer -->
+## Security
 
-					<!-- wp:video {"align":"wide"} -->
-					<figure class="wp-block-video alignwide"><video controls src="' . esc_url( get_template_directory_uri() ) . '/assets/videos/birds.mp4"></video></figure>
-					<!-- /wp:video -->
+Microsoft takes the security of our software products and services seriously, which includes all source code repositories managed through our GitHub organizations, which include [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet), [Xamarin](https://github.com/xamarin), and [our GitHub organizations](https://opensource.microsoft.com/).
 
-					<!-- wp:spacer {"height":32} -->
-					<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
-					<!-- /wp:spacer -->
+If you believe you have found a security vulnerability in any Microsoft-owned repository that meets Microsoft's [Microsoft's definition of a security vulnerability](<https://docs.microsoft.com/en-us/previous-versions/tn-archive/cc751383(v=technet.10)>) of a security vulnerability, please report it to us as described below.
 
-					<!-- wp:columns {"align":"wide"} -->
-					<div class="wp-block-columns alignwide"><!-- wp:column {"width":"50%"} -->
-					<div class="wp-block-column" style="flex-basis:50%"><!-- wp:paragraph -->
-					<p><strong>' . esc_html__( 'Featuring', 'twentytwentytwo' ) . '</strong></p>
-					<!-- /wp:paragraph --></div>
-					<!-- /wp:column -->
+## Reporting Security Issues
 
-					<!-- wp:column -->
-					<div class="wp-block-column"><!-- wp:paragraph -->
-					<p>' . wp_kses_post( __( 'Jesús Rodriguez<br>Doug Stilton<br>Emery Driscoll<br>Megan Perry<br>Rowan Price', 'twentytwentytwo' ) ) . '</p>
-					<!-- /wp:paragraph --></div>
-					<!-- /wp:column -->
+**Please do not report security vulnerabilities through public GitHub issues.**
 
-					<!-- wp:column -->
-					<div class="wp-block-column"><!-- wp:paragraph -->
-					<p>' . wp_kses_post( __( 'Angelo Tso<br>Edward Stilton<br>Amy Jensen<br>Boston Bell<br>Shay Ford', 'twentytwentytwo' ) ) . '</p>
-					<!-- /wp:paragraph --></div>
-					<!-- /wp:column --></div>
-					<!-- /wp:columns --></div>
-					<!-- /wp:group --></div>
-					<!-- /wp:group -->',
-);
+Instead, please report them to the Microsoft Security Response Center (MSRC) at [https://msrc.microsoft.com/create-report](https://msrc.microsoft.com/create-report).
+
+If you prefer to submit without logging in, send email to [secure@microsoft.com](mailto:secure@microsoft.com). If possible, encrypt your message with our PGP key; please download it from the the [Microsoft Security Response Center PGP Key page](https://www.microsoft.com/en-us/msrc/pgp-key-msrc).
+
+You should receive a response within 24 hours. If for some reason you do not, please follow up via email to ensure we received your original message. Additional information can be found at [microsoft.com/msrc](https://www.microsoft.com/msrc).
+
+Please include the requested information listed below (as much as you can provide) to help us better understand the nature and scope of the possible issue:
+
+-   Type of issue (e.g. buffer overflow, SQL injection, cross-site scripting, etc.)
+-   Full paths of source file(s) related to the manifestation of the issue
+-   The location of the affected source code (tag/branch/commit or direct URL)
+-   Any special configuration required to reproduce the issue
+-   Step-by-step instructions to reproduce the issue
+-   Proof-of-concept or exploit code (if possible)
+-   Impact of the issue, including how an attacker might exploit the issue
+
+This information will help us triage your report more quickly.
+
+If you are reporting for a bug bounty, more complete reports can contribute to a higher bounty award. Please visit our [Microsoft Bug Bounty Program](https://microsoft.com/msrc/bounty) page for more details about our active programs.
+
+## Preferred Languages
+
+We prefer all communications to be in English.
+
+## Policy
+
+Microsoft follows the principle of [Coordinated Vulnerability Disclosure](https://www.microsoft.com/en-us/msrc/cvd).
+
+<!-- END 

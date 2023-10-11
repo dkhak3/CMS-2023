@@ -1,82 +1,83 @@
-<?php
-/**
- * Server-side rendering of the `core/post-comments-form` block.
- *
- * @package WordPress
- */
+from typing import (
+    Any,
+    Callable,
+    Dict,
+    Generic,
+    Iterable,
+    Optional,
+    Tuple,
+    TypeVar,
+    Union,
+    overload,
+)
 
-/**
- * Renders the `core/post-comments-form` block on the server.
- *
- * @param array    $attributes Block attributes.
- * @param string   $content    Block default content.
- * @param WP_Block $block      Block instance.
- * @return string Returns the filtered post comments form for the current post.
- */
-function render_block_core_post_comments_form( $attributes, $content, $block ) {
-	if ( ! isset( $block->context['postId'] ) ) {
-		return '';
-	}
+from django.db.models import Field, Transform
+from typing_extensions import Literal
 
-	if ( post_password_required( $block->context['postId'] ) ) {
-		return;
-	}
+from .mixins import CheckFieldDefaultMixin
 
-	$classes = array( 'comment-respond' ); // See comment further below.
-	if ( isset( $attributes['textAlign'] ) ) {
-		$classes[] = 'has-text-align-' . $attributes['textAlign'];
-	}
-	if ( isset( $attributes['style']['elements']['link']['color']['text'] ) ) {
-		$classes[] = 'has-link-color';
-	}
-	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classes ) ) );
+_Choice = Tuple[Any, Any]
+_ChoiceNamedGroup = Tuple[str, Iterable[_Choice]]
+_FieldChoices = Iterable[Union[_Choice, _ChoiceNamedGroup]]
+_ValidatorCallable = Callable[..., None]
+_ErrorMessagesToOverride = Dict[str, Any]
 
-	add_filter( 'comment_form_defaults', 'post_comments_form_block_form_defaults' );
+_T = TypeVar("_T", bound="Optional[Dict[str, Optional[str]]]")
 
-	ob_start();
-	comment_form( array(), $block->context['postId'] );
-	$form = ob_get_clean();
+class HStoreField(Generic[_T], CheckFieldDefaultMixin, Field[Any, Any]):
+    @overload
+    def __init__(
+        self: HStoreField[Dict[str, Optional[str]]],
+        verbose_name: Optional[Union[str, bytes]] = ...,
+        name: Optional[str] = ...,
+        primary_key: bool = ...,
+        max_length: Optional[int] = ...,
+        unique: bool = ...,
+        blank: bool = ...,
+        null: Literal[False] = ...,
+        db_index: bool = ...,
+        default: Any = ...,
+        editable: bool = ...,
+        auto_created: bool = ...,
+        serialize: bool = ...,
+        unique_for_date: Optional[str] = ...,
+        unique_for_month: Optional[str] = ...,
+        unique_for_year: Optional[str] = ...,
+        choices: Optional[_FieldChoices] = ...,
+        help_text: str = ...,
+        db_column: Optional[str] = ...,
+        db_tablespace: Optional[str] = ...,
+        validators: Iterable[_ValidatorCallable] = ...,
+        error_messages: Optional[_ErrorMessagesToOverride] = ...,
+    ) -> None: ...
+    @overload
+    def __init__(
+        self: HStoreField[Optional[Dict[str, Optional[str]]]],
+        verbose_name: Optional[Union[str, bytes]] = ...,
+        name: Optional[str] = ...,
+        primary_key: bool = ...,
+        max_length: Optional[int] = ...,
+        unique: bool = ...,
+        blank: bool = ...,
+        null: Literal[True] = ...,
+        db_index: bool = ...,
+        default: Any = ...,
+        editable: bool = ...,
+        auto_created: bool = ...,
+        serialize: bool = ...,
+        unique_for_date: Optional[str] = ...,
+        unique_for_month: Optional[str] = ...,
+        unique_for_year: Optional[str] = ...,
+        choices: Optional[_FieldChoices] = ...,
+        help_text: str = ...,
+        db_column: Optional[str] = ...,
+        db_tablespace: Optional[str] = ...,
+        validators: Iterable[_ValidatorCallable] = ...,
+        error_messages: Optional[_ErrorMessagesToOverride] = ...,
+    ) -> None: ...
+    def get_transform(self, name: Any) -> Any: ...
+    def __get__(self: HStoreField[_T], instance: Any, owner: Any) -> _T: ...
+    def __set__(self: HStoreField[_T], instance: Any, value: _T) -> None: ...
 
-	remove_filter( 'comment_form_defaults', 'post_comments_form_block_form_defaults' );
-
-	// We use the outermost wrapping `<div />` returned by `comment_form()`
-	// which is identified by its default classname `comment-respond` to inject
-	// our wrapper attributes. This way, it is guaranteed that all styling applied
-	// to the block is carried along when the comment form is moved to the location
-	// of the 'Reply' link that the user clicked by Core's `comment-reply.js` script.
-	$form = str_replace( 'class="comment-respond"', $wrapper_attributes, $form );
-
-	// Enqueue the comment-reply script.
-	wp_enqueue_script( 'comment-reply' );
-
-	return $form;
-}
-
-/**
- * Registers the `core/post-comments-form` block on the server.
- */
-function register_block_core_post_comments_form() {
-	register_block_type_from_metadata(
-		__DIR__ . '/post-comments-form',
-		array(
-			'render_callback' => 'render_block_core_post_comments_form',
-		)
-	);
-}
-add_action( 'init', 'register_block_core_post_comments_form' );
-
-/**
- * Use the button block classes for the form-submit button.
- *
- * @param array $fields The default comment form arguments.
- *
- * @return array Returns the modified fields.
- */
-function post_comments_form_block_form_defaults( $fields ) {
-	if ( wp_is_block_theme() ) {
-		$fields['submit_button'] = '<input name="%1$s" type="submit" id="%2$s" class="wp-block-button__link ' . wp_theme_get_element_class_name( 'button' ) . '" value="%4$s" />';
-		$fields['submit_field']  = '<p class="form-submit wp-block-button">%1$s %2$s</p>';
-	}
-
-	return $fields;
-}
+class KeyTransform(Transform):
+    def __init__(self, key_name: str, *args: Any, **kwargs: Any) -> None: ..
