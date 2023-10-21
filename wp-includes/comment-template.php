@@ -2579,11 +2579,29 @@ function comment_form( $args = array(), $post = null ) {
 		'comment_field'        => sprintf(
 			'<p class="comment-form-comment">%s %s</p>',
 			sprintf(
-				'<label for="comment">%s%s</label>',
+				'<div class="card-header">
+					<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active comment-form-comment" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Make
+								a Post</a>
+						</li>
+					</ul>
+				</div>',
 				_x( 'Comment', 'noun' ),
 				$required_indicator
 			),
-			'<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
+			'
+			<div class="card-body">
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+						<div class="">
+							<label class="sr-only" for="message">post</label>
+							<textarea class="form-control" id="comment" name="comment" rows="3" maxlength="65525"' . $required_attribute . ' placeholder="What are you thinking..."></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			'
 		),
 		'must_log_in'          => sprintf(
 			'<p class="must-log-in">%s</p>',
@@ -2624,17 +2642,78 @@ function comment_form( $args = array(), $post = null ) {
 		'name_submit'          => 'submit',
 		'title_reply'          => __( 'Leave a Reply' ),
 		/* translators: %s: Author of the comment being replied to. */
-		'title_reply_to'       => __( 'Leave a Reply to %s' ),
-		'title_reply_before'   => '<h3 id="reply-title" class="comment-reply-title">',
-		'title_reply_after'    => '</h3>',
+		// 'title_reply_to'       => __( 'Leave a Reply to %s' ),
+		// 'title_reply_before'   => '<h3 id="reply-title" class="comment-reply-title">',
+		// 'title_reply_after'    => '</h3>',
 		'cancel_reply_before'  => ' <small>',
 		'cancel_reply_after'   => '</small>',
 		'cancel_reply_link'    => __( 'Cancel reply' ),
-		'label_submit'         => __( 'Post Comment' ),
+		'label_submit'         => __( 'share' ),
 		'submit_button'        => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
 		'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',
 		'format'               => 'xhtml',
 	);
+	// $defaults = array(
+	// 	'fields'               => $fields,
+	// 	'comment_field'        => sprintf(
+	// 		'<p class="comment-form-comment">%s %s</p>',
+	// 		sprintf(
+	// 			'<label for="comment">%s%s</label>',
+	// 			_x( 'Comment', 'noun' ),
+	// 			$required_indicator
+	// 		),
+	// 		'<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>',
+	// 	),
+	// 	'must_log_in'          => sprintf(
+	// 		'<p class="must-log-in">%s</p>',
+	// 		sprintf(
+	// 			/* translators: %s: Login URL. */
+	// 			__( 'You must be <a href="%s">logged in</a> to post a comment.' ),
+	// 			/** This filter is documented in wp-includes/link-template.php */
+	// 			wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ), $post_id ) )
+	// 		)
+	// 	),
+	// 	// 'logged_in_as'         => sprintf(
+	// 	// 	'<p class="logged-in-as">%s%s</p>',
+	// 	// 	sprintf(
+	// 	// 		/* translators: 1: User name, 2: Edit user link, 3: Logout URL. */
+	// 	// 		__( 'Logged in as %1$s. <a href="%2$s">Edit your profile</a>. <a href="%3$s">Log out?</a>' ),
+	// 	// 		$user_identity,
+	// 	// 		get_edit_user_link(),
+	// 	// 		/** This filter is documented in wp-includes/link-template.php */
+	// 	// 		wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ), $post_id ) )
+	// 	// 	),
+	// 	// 	$required_text
+	// 	// ),
+	// 	'comment_notes_before' => sprintf(
+	// 		'<p class="comment-notes">%s%s</p>',
+	// 		sprintf(
+	// 			'<span id="email-notes">%s</span>',
+	// 			__( 'Your email address will not be published.' )
+	// 		),
+	// 		$required_text
+	// 	),
+	// 	'comment_notes_after'  => '',
+	// 	'action'               => site_url( '/wp-comments-post.php' ),
+	// 	'id_form'              => 'commentform',
+	// 	'id_submit'            => 'submit',
+	// 	'class_container'      => 'comment-respond',
+	// 	'class_form'           => 'comment-form',
+	// 	'class_submit'         => 'submit',
+	// 	'name_submit'          => 'submit',
+	// 	'title_reply'          => __( 'Leave a Reply' ),
+	// 	/* translators: %s: Author of the comment being replied to. */
+	// 	// 'title_reply_to'       => __( 'Leave a Reply to %s' ),
+	// 	// 'title_reply_before'   => '<h3 id="reply-title" class="comment-reply-title">',
+	// 	// 'title_reply_after'    => '</h3>',
+	// 	'cancel_reply_before'  => ' <small>',
+	// 	'cancel_reply_after'   => '</small>',
+	// 	'cancel_reply_link'    => __( 'Cancel reply' ),
+	// 	'label_submit'         => __( 'Post Comment' ),
+	// 	'submit_button'        => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
+	// 	'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',
+	// 	'format'               => 'xhtml',
+	// );
 
 	/**
 	 * Filters the comment form default arguments.
@@ -2666,21 +2745,21 @@ function comment_form( $args = array(), $post = null ) {
 	 */
 	do_action( 'comment_form_before' );
 	?>
-	<div id="respond" class="<?php echo esc_attr( $args['class_container'] ); ?>">
-		<?php
-		echo $args['title_reply_before'];
+<div id="respond" class="<?php echo esc_attr( $args['class_container'] ); ?>">
+    <?php
+		// echo $args['title_reply_before'];
 
-		comment_form_title( $args['title_reply'], $args['title_reply_to'], true, $post_id );
+		// comment_form_title( $args['title_reply'], $args['title_reply_to'], true, $post_id );
 
-		if ( get_option( 'thread_comments' ) ) {
-			echo $args['cancel_reply_before'];
+		// if ( get_option( 'thread_comments' ) ) {
+		// 	echo $args['cancel_reply_before'];
 
-			cancel_comment_reply_link( $args['cancel_reply_link'] );
+		// 	cancel_comment_reply_link( $args['cancel_reply_link'] );
 
-			echo $args['cancel_reply_after'];
-		}
+		// 	echo $args['cancel_reply_after'];
+		// }
 
-		echo $args['title_reply_after'];
+		// echo $args['title_reply_after'];
 
 		if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) :
 
@@ -2723,7 +2802,7 @@ function comment_form( $args = array(), $post = null ) {
 				 * @param string $user_identity  If the commenter is a registered user,
 				 *                               the display name, blank otherwise.
 				 */
-				echo apply_filters( 'comment_form_logged_in', $args['logged_in_as'], $commenter, $user_identity );
+				// echo apply_filters( 'comment_form_logged_in', $args['logged_in_as'], $commenter, $user_identity );
 
 				/**
 				 * Fires after the is_user_logged_in() check in the comment form.
@@ -2869,8 +2948,8 @@ function comment_form( $args = array(), $post = null ) {
 
 		endif;
 		?>
-	</div><!-- #respond -->
-	<?php
+</div><!-- #respond -->
+<?php
 
 	/**
 	 * Fires after the comment form.
