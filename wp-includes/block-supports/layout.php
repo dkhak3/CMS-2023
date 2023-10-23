@@ -23,7 +23,7 @@ function wp_get_layout_definitions() {
 		'default'     => array(
 			'name'          => 'default',
 			'slug'          => 'flow',
-			'className'     => 'is-layout-flow',
+			'className'     => 'is-layout-flow headlines',
 			'baseStyles'    => array(
 				array(
 					'selector' => ' > .alignleft',
@@ -790,7 +790,8 @@ function wp_restore_group_inner_container( $block_content, $block ) {
 	$updated_content = preg_replace_callback(
 		$replace_regex,
 		static function( $matches ) {
-			return $matches[1] . '<div class="wp-block-group__inner-container">' . $matches[2] . '</div>' . $matches[3];
+			return $matches[1] . '<div class="wp-block-group__inner-container">' . $matches[2] . '</div>
+				<a class="newsall" href="/CMS-2023">Xem tất cả tin tức</a>' . $matches[3];
 		},
 		$block_content
 	);

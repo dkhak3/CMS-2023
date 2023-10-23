@@ -118,8 +118,35 @@ function render_block_core_latest_posts( $attributes ) {
 			);
 		}
 
+		
+		if ( isset( $attributes['displayPostDate'] ) && $attributes['displayPostDate'] ) {
+			$list_items_markup .= sprintf(
+				'
+				<div class="headlinesdate">
+					<div class="headlinesdm">
+						<div class="headlinesday">
+							<time datetime="%1$s" class="wp-block-latest-posts__post-date">%1$s</time>
+						</div>
+						<div class="headlinesmonth">
+							<time datetime="%2$s" class="wp-block-latest-posts__post-date">%2$s</time>
+						</div>
+					</div>
+					<div class="headlinesyear">
+						<time datetime="%3$s" class="wp-block-latest-posts__post-date">%3$s</time>
+					</div>
+				</div>
+				',
+				esc_attr( get_the_date( 'd', $post ) ),
+				esc_attr( get_the_date( 'm', $post ) ),
+				esc_attr( get_the_date( 'Y', $post ) ),
+				get_the_date( '', $post ),
+				get_the_date( '', $post ),
+				get_the_date( '', $post ),
+			);
+		}
+
 		$list_items_markup .= sprintf(
-			'<a class="wp-block-latest-posts__post-title" href="%1$s">%2$s</a>',
+			'<div class="headlinestitle"><a class="wp-block-latest-posts__post-title" href="%1$s">%2$s</a></div>',
 			esc_url( $post_link ),
 			$title
 		);
@@ -136,14 +163,6 @@ function render_block_core_latest_posts( $attributes ) {
 					$byline
 				);
 			}
-		}
-
-		if ( isset( $attributes['displayPostDate'] ) && $attributes['displayPostDate'] ) {
-			$list_items_markup .= sprintf(
-				'<time datetime="%1$s" class="wp-block-latest-posts__post-date">%2$s</time>',
-				esc_attr( get_the_date( 'c', $post ) ),
-				get_the_date( '', $post )
-			);
 		}
 
 		if ( isset( $attributes['displayPostContent'] ) && $attributes['displayPostContent']
@@ -199,11 +218,12 @@ function render_block_core_latest_posts( $attributes ) {
 	}
 
 	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classes ) ) );
-
 	return sprintf(
-		'<ul %1$s>%2$s</ul>',
+		'<ul %1$s>
+			%2$s
+		</ul>',
 		$wrapper_attributes,
-		$list_items_markup
+		$list_items_markup,
 	);
 }
 
