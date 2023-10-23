@@ -3,3 +3,89 @@
  *
  * This file is automatically populated if the user chooses custom colors in the Customizer.
  */
+
+/* Style model 10 */
+.headlines {
+  background: #56bdbf !important;
+  overflow: hidden !important;
+  padding: 20px 30px !important;
+}
+.headlines ul {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.headlines ul > li {
+  overflow: hidden !important;
+  display: table !important;
+  margin-bottom: 5px !important;
+  width: 100% !important;
+}
+.headlines ul > li > .headlinestitle {
+  display: table-cell !important;
+  vertical-align: middle !important;
+  width: 85% !important;
+  padding-left: 55px !important;
+}
+
+.headlines ul > li > .headlinestitle > a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.headlines ul > li > .headlinestitle > a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.headlines ul > li > .headlinestitle > a:focus {
+  background-color: #56bdbf !important;
+  outline: none !important;
+  text-decoration: underline !important;
+}
+
+.headlinesdate .headlinesdm,
+.news > .headlines .headlinesdate,
+.headlinesdate {
+  float: left !important;
+  font-family: "Prata", serif !important;
+  color: #fff;
+}
+.headlines .headlinesdate {
+  font-size: 0.8em !important;
+  width: 15% !important;
+  min-width: 55px !important;
+  display: table-cell !important;
+  vertical-align: middle !important;
+}
+.headlinesdate .headlinesday,
+.news > .headlines .headlinesmonth {
+  line-height: 1.7em !important;
+}
+.headlinesdate .headlinesday {
+  border-bottom: 1px solid #fff !important;
+}
+.headlinesdate .headlinesyear time {
+  line-height: 3.5em !important;
+  float: left !important;
+  margin-left: 3px !important;
+}
+.newsall {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  background: #62c6c8;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+.newsall:hover {
+  color: #fff !important;
+  text-decoration: underline !important;
+}
+.newsall:focus {
+  background-color: #62c6c8 !important;
+  outline: none !important;
+  text-decoration: underline !important;
+}
