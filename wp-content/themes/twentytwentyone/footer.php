@@ -11,7 +11,9 @@
  * @subpackage Twenty_Twenty_One
  * @since Twenty Twenty-One 1.0
  */
-
+$has_sidebar_1 = is_active_sidebar('sidebar-4');
+$has_sidebar_2 = is_active_sidebar('sidebar-2');
+$has_sidebar_3 = is_active_sidebar('sidebar-3');
 ?>
 </main><!-- #main -->
 </div><!-- #primary -->
@@ -26,33 +28,21 @@
 		<div class="row text-center text-xs-center text-sm-left text-md-left">
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<h5>Quick links</h5>
-				<ul class="list-unstyled quick-links">
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-				</ul>
+				<?php if ($has_sidebar_1) {
+					dynamic_sidebar('sidebar-4');
+				} ?>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<h5>Quick links</h5>
-				<ul class="list-unstyled quick-links">
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-				</ul>
+				<?php if ($has_sidebar_1) {
+					dynamic_sidebar('sidebar-2');
+				} ?>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<h5>Quick links</h5>
-				<ul class="list-unstyled quick-links">
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-					<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-					<li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
-				</ul>
+				<?php if ($has_sidebar_1) {
+					dynamic_sidebar('sidebar-3');
+				} ?>
 			</div>
 		</div>
 		<div class="row">
