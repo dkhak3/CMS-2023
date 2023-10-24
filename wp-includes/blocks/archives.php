@@ -98,7 +98,28 @@ function render_block_core_archives( $attributes ) {
 	}
 
 	return sprintf(
-		'<ul %1$s>%2$s</ul>',
+		'<div class="box-category box-xemnhieu">
+			<hgroup class="width_common title-box-category">
+				<h2 class="parent-cate active"><a title="Xem nhiều" href="/CMS-2023" class="inner-title" data-itm-added="1">Xem nhiều</a></h2>
+			</hgroup>
+			<div class="width_common list-top-view">
+			<article class="item-news">
+			<span class="number-top-view">1</span>
+				<h3 class="title-news">
+					%2$s
+					<span class="meta-news">
+						<a class="count_cmt" href="" style="white-space: nowrap; display: inline-block;">
+							<svg class="ic ic-comment" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+							</svg>
+
+							<span class="font_icon widget-comment-4668195-3">75</span>
+						</a>
+					</span>
+				</h3>
+			</article>
+			</div>
+		</div>',
 		$wrapper_attributes,
 		$archives
 	);
