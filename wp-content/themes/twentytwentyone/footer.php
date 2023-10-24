@@ -27,20 +27,20 @@ $has_sidebar_3 = is_active_sidebar('sidebar-3');
 	<div class="container">
 		<div class="row text-center text-xs-center text-sm-left text-md-left">
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<h5>Quick links</h5>
+				<h5>Comments</h5>
 				<?php if ($has_sidebar_1) {
 					dynamic_sidebar('sidebar-4');
 				} ?>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<h5>Quick links</h5>
-				<?php if ($has_sidebar_1) {
+				<h5>Categories</h5>
+				<?php if ($has_sidebar_2) {
 					dynamic_sidebar('sidebar-2');
 				} ?>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<h5>Quick links</h5>
-				<?php if ($has_sidebar_1) {
+				<h5>Last posts</h5>
+				<?php if ($has_sidebar_3) {
 					dynamic_sidebar('sidebar-3');
 				} ?>
 			</div>
