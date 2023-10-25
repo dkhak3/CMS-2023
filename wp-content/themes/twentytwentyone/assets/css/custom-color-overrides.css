@@ -22,7 +22,7 @@
   width: 100% !important;
 }
 .headlines ul > li > .headlinestitle {
-  display: table-cell !important;
+  /* display: table-cell !important; */
   vertical-align: middle !important;
   width: 85% !important;
   padding-left: 55px !important;
@@ -31,6 +31,8 @@
 .headlines ul > li > .headlinestitle > a {
   color: #fff;
   text-decoration: none;
+  display: flex;
+  margin-left: 54px;
 }
 
 .headlines ul > li > .headlinestitle > a:hover {
@@ -42,6 +44,9 @@
   background-color: #56bdbf !important;
   outline: none !important;
   text-decoration: underline !important;
+}
+.headlinesdate {
+  font-weight: bold;
 }
 
 .headlinesdate .headlinesdm,
@@ -88,4 +93,7 @@
   background-color: #62c6c8 !important;
   outline: none !important;
   text-decoration: underline !important;
+}
+.headlines > .wp-block-latest-posts > li > *:first-child {
+  margin-top: 1px !important;
 }
